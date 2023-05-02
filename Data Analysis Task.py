@@ -9,10 +9,10 @@ sales = pd.read_csv("sales_data.csv")
 ##Prediction Part
 sales_data = pd.DataFrame({
     'Year': [2011, 2012, 2013, 2014, 2015, 2016],
-    'Order_Quantity': [sales.loc[sales['Year'] == 2011].groupby(sales['Year']).agg({'Order_Quantity': 'sum'}), sales.loc[sales['Year'] == 2012].groupby(sales['Year']).agg({'Order_Quantity': 'sum'}), sales.loc[sales['Year'] == 2013].groupby(sales['Year']).agg({'Order_Quantity': 'sum'}), sales.loc[sales['Year'] == 2014].groupby(sales['Year']).agg({'Order_Quantity': 'sum'}), sales.loc[sales['Year'] == 2015].groupby(sales['Year']).agg({'Order_Quantity': 'sum'}), sales.loc[sales['Year'] == 2016].groupby(sales['Year']).agg({'Order_Quantity': 'sum'})]
+    'Order_Quantity': [sales.loc[sales['Year'] == 2011,'Order_Quantity'].sum(), sales.loc[sales['Year'] == 2012,'Order_Quantity'].sum(), sales.loc[sales['Year'] == 2013,'Order_Quantity'].sum(), sales.loc[sales['Year'] == 2014,'Order_Quantity'].sum(), sales.loc[sales['Year'] == 2015,'Order_Quantity'].sum(), sales.loc[sales['Year'] == 2016,'Order_Quantity'].sum()]
 })
-X = sales[['Year']]
-y = sales['Order_Quantity']
+X = sales_data[['Year']]
+y = sales_data['Order_Quantity']
 
 
 model = LinearRegression()
